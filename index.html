@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menús Disponibles</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="logo-styles.css">
+</head>
+<body class="d-flex flex-column justify-content-center align-items-center min-vh-100">
+
+<div class="container text-center" id="formularioInicioSesion">
+    <div class="logo-wrapper">
+        <div class="card logo-card">
+            <div class="logo-container">
+                <img src="https://www.bcnactiva.cl/wp-content/uploads/2023/10/cropped-bcn_activa_logo03.png" alt="BCN Activa Logo" class="logo-bcn">
+            </div>
+        </div>
+    </div>
+    <div class="card mx-auto">
+        <div class="card-body">
+            <h2 class="card-title">Identificación comensal</h2>
+            <form id="formInicioSesion">
+                <div class="form-group">
+                    <label for="rut"></label>
+                    <input type="text" class="form-control" id="rut" placeholder="Ingrese RUT" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container text-center" id="menus" style="display: none;">
+    <div class="logo-wrapper">
+        <div class="card logo-card">
+            <div class="logo-container">
+                <img src="https://www.bcnactiva.cl/wp-content/uploads/2023/10/cropped-bcn_activa_logo03.png" alt="BCN Activa Logo" class="logo-bcn">
+            </div>
+        </div>
+        <div class="card logo-card">
+            <div class="logo-container">
+                <img src="/imagenes/menus.png" alt="Menus Disponibles Bcn" class="logo-menus">
+            </div>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-3 d-flex card-container">
+            <div class="card mb-4 menu-box menu1 text-white" data-stock="10" id="menu1">
+                <img src="https://comoquiero-uploads.s3-accelerate.amazonaws.com/images/recipes/5313.webp" class="card-img-top img-card" alt="Menú 1">
+                <div class="card-body">
+                    <h2 class="card-title">Menú 1</h2>
+                    <p class="card-text">Menús disponibles: <span class="cantidad">10</span></p>
+                    <button class="btn btn-primary" onclick="mostrarDetalles('menu1')">Ver Menú</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 d-flex card-container">
+            <div class="card mb-4 menu-box menu2 text-white" data-stock="10" id="menu2">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDZZ8fzjBkkwVVEQrsg8O53DLfW2us1h8kbg&s" class="card-img-top img-card" alt="Menú 2">
+                <div class="card-body">
+                    <h2 class="card-title">Menú 2</h2>
+                    <p class="card-text">Menús disponibles: <span class="cantidad">10</span></p>
+                    <button class="btn btn-primary" onclick="mostrarDetalles('menu2')">Ver Menú</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 d-flex card-container">
+            <div class="card mb-4 menu-box menu3 text-white" data-stock="10" id="menu3">
+                <img src="https://www.recetaslider.cl/wp-content/uploads/2021/06/principal_5d3eec272ecc1.jpg" class="card-img-top img-card" alt="Menú 3">
+                <div class="card-body">
+                    <h2 class="card-title">Menú 3</h2>
+                    <p class="card-text">Menús disponibles: <span class="cantidad">10</span></p>
+                    <button class="btn btn-primary" onclick="mostrarDetalles('menu3')">Ver Menú</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 d-flex card-container">
+            <div class="card mb-4 menu-box menu4 text-white" data-stock="10" id="menu4">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyh3vuNQ_brqN2tZh9KXYt-XcaoZ6KP-I2EQ&s" class="card-img-top img-card" alt="Menú 4">
+                <div class="card-body">
+                    <h2 class="card-title">Menú 4</h2>
+                    <p class="card-text">Menús disponibles: <span class="cantidad">10</span></p>
+                    <button class="btn btn-primary" onclick="mostrarDetalles('menu4')">Ver Menú</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="detalleMenu" tabindex="-1" role="dialog" aria-labelledby="detalleMenuLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="detalleMenuLabel">Detalles del Menú</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6"><img id="detalleImagen" src="" class="img-fluid mb-3" alt="Imagen del menú"></div>
+                    <div class="col-md-6">
+                        <form id="formProductos">
+                            <h5>Plato de Entrada:</h5>
+                            <input type="text" class="form-control mb-2" id="entradaEditable" value="" readonly>
+                            <h5>Seleccione la ensalada:</h5>
+                            <div id="checkboxesEnsaladas"></div>
+                            <h5>Seleccione su postre:</h5>
+                            <div id="checkboxesPostres"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="confirmarPedido()">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="agradecimientoMenu" tabindex="-1" role="dialog" aria-labelledby="agradecimientoMenuLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="agradecimientoMenuLabel">¡Muchas Gracias por su Pedido!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="detallesPedido"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="cerrarSesion()">Confirmar Pedido</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

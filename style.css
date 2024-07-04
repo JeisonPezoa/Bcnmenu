@@ -1,0 +1,146 @@
+body {
+    background-image: url(./imagenes/fondo.jpg);
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+.title-box {
+    background-color: #0ae21f;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.card {
+    margin-bottom: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+
+.card-img-top {
+    border-radius: 15px 15px 0 0;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-container {
+    height: 400px;
+}
+
+.img-card {
+    height: 40%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.menu-box {
+    transition: transform 0.3s ease;
+}
+
+.menu-box:hover {
+    transform: translateY(-5px);
+}
+
+.btn {
+    padding: 15px 25px;
+    font-size: 1.25rem;
+}
+
+.modal-content {
+    background-color: #e0f7fa;
+    border-radius: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+.modal-body {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.modal-body img {
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-body p {
+    margin: 10px 0;
+}
+
+.modal-footer {
+    justify-content: center;
+}
+
+.logo-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo-bcn, .logo-menus {
+    width: 90%;
+    height: auto;
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+    }
+}
+
+.menu1 {
+    background-color: red;
+    color: white;
+}
+
+.menu2 {
+    background-color: rgb(190, 190, 0);
+    color: white;
+}
+
+.menu3 {
+    background-color: green;
+    color: white;
+}
+
+.menu4 {
+    background-color: orange;
+    color: white;
+}
+
+.logo-card {
+    background-color: white;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    width: auto;
+}
